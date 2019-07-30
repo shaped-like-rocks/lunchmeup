@@ -51,6 +51,7 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compile("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
     compile("it.skrape:skrapeit-core:$skrapeItVersion")
+    compile("io.github.microutils:kotlin-logging:1.7.2")
 
     // testing
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
