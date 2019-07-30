@@ -2,10 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
+    val kotlinVersion = "1.3.41"
     id("org.springframework.boot") version "2.1.6.RELEASE"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
-    kotlin("jvm") version "1.2.71"
-    kotlin("plugin.spring") version "1.2.71"
+    id("com.adarshr.test-logger") version "1.7.0"
+    kotlin("jvm") version kotlinVersion
+    kotlin("plugin.spring") version kotlinVersion
 }
 
 group = "io.github.alxndrhi"
@@ -64,6 +66,13 @@ dependencies {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+}
+
+apply(plugin = "com.adarshr.test-logger")
+
+testlogger {
+    setTheme("mocha")
+    slowThreshold = 5000
 }
 
 tasks {
