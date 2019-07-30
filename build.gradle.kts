@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
     id("org.springframework.boot") version "2.1.6.RELEASE"
@@ -24,7 +25,8 @@ tasks.withType<KotlinCompile> {
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
-val developmentOnly by configurations.creating
+
+val developmentOnly: Configuration by configurations.creating
 
 configurations {
     runtimeClasspath {
@@ -50,14 +52,22 @@ dependencies {
     compile("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
     compile("it.skrape:skrapeit-core:$skrapeItVersion")
 
-    //testing
+    // testing
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
         exclude(module = "mockito-core")
     }
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+    testCompile("it.skrape:skrapeit-mockmvc:+")
 }
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+}
+
+tasks {
+    val bootRun by getting(BootRun::class) {
+        args("--spring.profiles.active=local")
+        workingDir = file("src/test/resources")
+    }
 }
