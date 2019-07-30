@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @ExtendWith(SpringExtension::class)
 @SpringBootTest
 @AutoConfigureMockMvc
-internal class MainPageControllerIT {
+internal class MainPageControllerTest {
 
     @Autowired
     private lateinit var mockMvc: MockMvc
