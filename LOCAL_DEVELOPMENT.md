@@ -18,10 +18,6 @@ run unit tests
 
     gw test
     
-run all tests
-
-    gw check
-    
 start app:
 
     gw bootRun
