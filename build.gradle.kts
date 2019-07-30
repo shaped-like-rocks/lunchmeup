@@ -9,18 +9,36 @@ plugins {
 
 group = "io.github.alxndrhi"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
 
+repositories {
+    jcenter()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        apiVersion = "1.3"
+        languageVersion = "1.3"
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+    }
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 val developmentOnly by configurations.creating
+
 configurations {
     runtimeClasspath {
         extendsFrom(developmentOnly)
     }
 }
-
 repositories {
     mavenCentral()
+    jcenter()
 }
+
+val junitVersion = "5.5.1"
+val htmlDslVersion = "0.6.11"
+val skrapeItVersion = "0.6.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -29,12 +47,17 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    compile("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
+    compile("it.skrape:skrapeit-core:$skrapeItVersion")
+
+    //testing
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(module = "junit")
+        exclude(module = "mockito-core")
+    }
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
-    }
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
