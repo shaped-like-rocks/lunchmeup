@@ -5,6 +5,7 @@ plugins {
     val kotlinVersion = "1.3.41"
     id("org.springframework.boot") version "2.1.6.RELEASE"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
+    id("com.moowork.node") version "1.3.1"
     id("com.adarshr.test-logger") version "1.7.0"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
@@ -75,9 +76,11 @@ testlogger {
     slowThreshold = 5000
 }
 
+/*
 tasks {
     val bootRun by getting(BootRun::class) {
         args("--spring.profiles.active=local")
         workingDir = file("src/test/resources")
     }
 }
+*/
