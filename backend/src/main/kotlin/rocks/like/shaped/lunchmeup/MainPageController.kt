@@ -1,4 +1,4 @@
-package io.github.alxndrhi.lunchmeup
+package rocks.like.shaped.lunchmeup
 
 import kotlinx.html.*
 import kotlinx.html.dom.createHTMLDocument

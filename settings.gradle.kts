@@ -4,3 +4,5 @@ pluginManagement {
     }
 }
 rootProject.name = "lunchmeup"
+
+include("frontend", "backend")

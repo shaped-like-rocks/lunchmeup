@@ -1,4 +1,4 @@
-package io.github.alxndrhi.lunchmeup
+package rocks.like.shaped.lunchmeup
 
 import it.skrape.matchers.toBe
 import it.skrape.matchers.toBePresent

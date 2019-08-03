@@ -1,4 +1,4 @@
-package io.github.alxndrhi.lunchmeup
+package rocks.like.shaped.lunchmeup
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

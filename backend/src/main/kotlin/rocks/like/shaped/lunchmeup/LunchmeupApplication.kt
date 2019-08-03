@@ -1,4 +1,4 @@
-package io.github.alxndrhi.lunchmeup
+package rocks.like.shaped.lunchmeup
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
