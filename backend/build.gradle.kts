@@ -56,11 +56,9 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
-/*
+
 tasks {
-    val bootRun by getting(BootRun::class) {
+    bootRun {
         args("--spring.profiles.active=local")
-        workingDir = file("src/test/resources")
     }
 }
-*/
