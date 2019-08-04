@@ -1,0 +1,35 @@
+{
+  "name": "lunchmeup-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "cowsay": "^1.4.0",
+    "date-now-cli": "1.1.0",
+    "parcel-bundler": "^1.12.3"
+  },
+  "scripts": {
+    "bundle": "parcel build src/main/index/index.js --out-dir build --out-file bundle --public-url /dist",
+    "postbundle": "date-now --format='DD.MM.YYYY-HH:mm:ss (A)' | cowthink $1",
+    "watch": "parcel watch src/main/index/index.js --out-dir build --out-file bundle --public-url /dist",
+    "postwatch": "date-now --format='DD.MM.YYYY-HH:mm:ss (A)' | cowthink $1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/main/**/*.js"
+    ],
+    "coverageDirectory": "target/js-coverage",
+    "setupFiles": [
+      "./src/test/jest/setup-jest.js",
+      "jest-localstorage-mock"
+    ]
+  }
+}
