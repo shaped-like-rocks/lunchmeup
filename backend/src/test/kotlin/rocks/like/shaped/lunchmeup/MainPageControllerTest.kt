@@ -18,10 +18,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @ExtendWith(SpringExtension::class)
 @SpringBootTest
 @AutoConfigureMockMvc
-internal class MainPageControllerTest {
-
-    @Autowired
-    private lateinit var mockMvc: MockMvc
+internal class MainPageControllerTest(
+        @Autowired val mockMvc: MockMvc
+) {
 
     @Test
     internal fun `check react entry point is present`() {
