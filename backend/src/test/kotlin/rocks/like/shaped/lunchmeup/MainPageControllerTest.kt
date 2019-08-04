@@ -32,10 +32,10 @@ internal class MainPageControllerTest {
     }
 
     @Test
-    internal fun `check css bundle is added`() {
+    internal fun `check JS bundle is added`() {
         doMainPageCall()
                 .andExpectHtml {
-                    selectFirst("link[rel=stylesheet]").attr("href") toBe "/dist/bundle.css"
+                    element("script[src='/bundle.js']").toBePresent()
                 }
     }
 
