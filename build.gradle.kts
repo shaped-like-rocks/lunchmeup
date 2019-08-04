@@ -24,3 +24,10 @@ allprojects {
         slowThreshold = 5000
     }
 }
+
+tasks {
+    register("start") {
+        description = "Start Complete App (Frontend with Backend)"
+        dependsOn(":frontend:bundle", ":backend:bootRun")
+    }
+}
