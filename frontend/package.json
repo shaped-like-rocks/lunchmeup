@@ -26,9 +26,8 @@
     "postbundle": "date-now --format='DD.MM.YYYY-HH:mm:ss (A)' | cowthink $1",
     "watch": "parcel watch src/main/index/index.js --out-dir build --out-file bundle --public-url /dist",
     "postwatch": "date-now --format='DD.MM.YYYY-HH:mm:ss (A)' | cowthink $1",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors"
+    "test": "jest --coverage --colors",
+    "test:watch": "jest --watch"
   },
   "jest": {
     "collectCoverage": true,
