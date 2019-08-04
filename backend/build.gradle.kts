@@ -47,7 +47,9 @@ dependencies {
         exclude(module = "mockito-core")
     }
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-    testCompile("it.skrape:skrapeit-mockmvc:+")
+    testImplementation("it.skrape:skrapeit-mockmvc:+")
+    testImplementation("io.strikt:strikt-core:0.21.1")
+    testImplementation("io.mockk:mockk:1.9.3")
 }
 
 tasks.withType<Test>().configureEach {
