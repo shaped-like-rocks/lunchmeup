@@ -14,13 +14,13 @@ build app:
 
     gw build
     
-run unit tests
+run all tests (including backend & frontend)
 
-    gw test
+    gw check
     
 start app:
 
-    gw bootRun
+    gw start
     
 ## A few words
 

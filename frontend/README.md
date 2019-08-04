@@ -19,11 +19,11 @@ Thereby it is ensured that everybody is working on the same version
     
 ## run tests
 
-    gw yarn_test
+    gw check
     
 ## bundle project
 
-    gw yarn_bundle
+    gw bundle
     
 ## Good to Know
 
