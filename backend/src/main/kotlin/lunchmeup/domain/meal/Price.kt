@@ -1,4 +1,4 @@
-package rocks.like.shaped.lunchmeup.domain.meal
+package lunchmeup.domain.meal
 
 data class Price(
         val amount: Int,

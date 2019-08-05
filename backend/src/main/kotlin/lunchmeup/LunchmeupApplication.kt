@@ -1,4 +1,4 @@
-package rocks.like.shaped.lunchmeup
+package lunchmeup
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

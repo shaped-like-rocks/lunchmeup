@@ -1,4 +1,4 @@
-package rocks.like.shaped.lunchmeup.domain
+package lunchmeup.domain
 
 data class Location(
         val name: String

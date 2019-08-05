@@ -1,4 +1,4 @@
-package rocks.like.shaped.lunchmeup
+package lunchmeup
 
 import kotlinx.html.*
 import kotlinx.html.dom.createHTMLDocument

@@ -1,6 +1,6 @@
-package rocks.like.shaped.lunchmeup.domain
+package lunchmeup.domain
 
-import rocks.like.shaped.lunchmeup.domain.meal.Dish
+import lunchmeup.domain.meal.Dish
 import java.util.Date
 
 data class Menu(

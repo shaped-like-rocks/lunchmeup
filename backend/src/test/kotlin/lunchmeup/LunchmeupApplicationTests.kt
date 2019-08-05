@@ -1,4 +1,4 @@
-package rocks.like.shaped.lunchmeup
+package lunchmeup
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

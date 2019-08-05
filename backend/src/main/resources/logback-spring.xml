@@ -10,7 +10,7 @@
         </encoder>
     </appender>
 
-    <logger name="rocks.like.shaped.lunchmeup.MainPageController" level="DEBUG"/>
+    <logger name="lunchmeup.MainPageController" level="DEBUG"/>
 
     <root level="WARN">
         <appender-ref ref="CONSOLE"/>

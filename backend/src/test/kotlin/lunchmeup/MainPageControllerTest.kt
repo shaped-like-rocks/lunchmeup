@@ -1,4 +1,4 @@
-package rocks.like.shaped.lunchmeup
+package lunchmeup
 
 import it.skrape.matchers.toBe
 import it.skrape.matchers.toBePresent

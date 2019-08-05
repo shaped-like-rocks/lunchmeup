@@ -1,8 +1,8 @@
-package rocks.like.shaped.lunchmeup.api
+package lunchmeup.api
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
-import rocks.like.shaped.lunchmeup.domain.Location
+import lunchmeup.domain.Location
 
 @RestController
 class LocationsController {
