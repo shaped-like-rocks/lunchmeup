@@ -11,7 +11,7 @@ Thereby it is ensured that everybody is working on the same version
 ## Recommended
 
 * styled-components plugin for IntelliJ
-* gdub installed ()
+* gdub installed
 
 ## install project
 
