@@ -5,7 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
     kotlin("plugin.spring")
     kotlin("jvm")
-    id("com.palantir.docker") version "0.22.1"
+    id("com.bmuschko.docker-spring-boot-application") version "4.10.0"
 }
 
 tasks.withType<KotlinCompile> {
@@ -62,13 +62,13 @@ tasks {
     bootRun {
         args("--spring.profiles.active=local")
     }
-
-    bootJar {
-        archiveName = "${rootProject.name}.jar"
-    }
 }
 
 docker {
-    name = rootProject.name
-    setDockerfile(File("./backend/docker/Dockerfile"))
+    springBootApplication {
+        baseImage.set("openjdk:8-alpine")
+        ports.set(listOf(8080, 8080))
+        tag.set("${rootProject.name}:prod")
+        jvmArgs.set(listOf("-Dspring.profiles.active=production", "-Xmx2048m"))
+    }
 }
