@@ -5,11 +5,12 @@ import strikt.api.expectThat
 import strikt.assertions.contains
 import strikt.assertions.isNotNull
 
-class ReactWiringTest {
+class FrontendWiringTest {
 
     @Test
     internal fun `frontend bundle has been added to classpath`() {
         val classPath = System.getProperty("java.class.path")
+        println(classPath.replace(":", "\n"))
         expectThat(classPath).contains("/backend/build/frontend:")
     }
 
