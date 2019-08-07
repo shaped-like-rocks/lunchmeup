@@ -22,7 +22,7 @@
     "parcel-bundler": "^1.12.3"
   },
   "scripts": {
-    "bundle": "parcel build src/main/index/index.js --out-dir ./../backend/build/classes/static --out-file bundle --public-url /dist",
+    "bundle": "parcel build src/main/index/index.js --out-dir build --out-file bundle --public-url /dist",
     "postbundle": "date-now --format='DD.MM.YYYY-HH:mm:ss (A)' | cowthink $1",
     "watch": "parcel watch src/main/index/index.js --out-dir build --out-file bundle --public-url /dist",
     "postwatch": "date-now --format='DD.MM.YYYY-HH:mm:ss (A)' | cowthink $1",

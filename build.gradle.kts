@@ -26,7 +26,7 @@ allprojects {
 }
 
 tasks {
-    register("start") {
+    val start by creating {
         description = "Start Complete App (Frontend with Backend)"
         dependsOn(":frontend:bundle", ":backend:bootRun")
     }

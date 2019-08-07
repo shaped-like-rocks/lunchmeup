@@ -20,6 +20,7 @@ tasks.withType<KotlinCompile> {
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 val developmentOnly: Configuration by configurations.creating
+val frontendBundle: Configuration by configurations.creating
 
 configurations {
     runtimeClasspath {
@@ -32,6 +33,7 @@ val htmlDslVersion = "0.6.11"
 val skrapeItVersion = "0.6.0"
 
 dependencies {
+    frontendBundle(project(path = ":frontend", configuration = "archives"))
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -53,14 +55,27 @@ dependencies {
     testImplementation("io.mockk:mockk:1.9.3")
 }
 
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
-}
-
 
 tasks {
+    withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
+
     bootRun {
         args("--spring.profiles.active=local")
+    }
+}
+
+val copyFrontend by tasks.creating(Copy::class) {
+    from(frontendBundle)
+    destinationDir = file("$buildDir/frontend/static")
+}
+
+sourceSets {
+    main {
+        java {
+            output.dir("$buildDir/frontend", "builtBy" to copyFrontend)
+        }
     }
 }
 

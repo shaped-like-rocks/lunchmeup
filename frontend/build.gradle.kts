@@ -1,4 +1,5 @@
 plugins {
+    base
     id("com.github.node-gradle.node") version "2.0.0"
 }
 
@@ -7,15 +8,12 @@ node {
     yarnVersion = "1.17.3"
 }
 
-tasks {
+val check by tasks.getting  {
+    dependsOn("yarn_test")
+}
 
-    register("bundle") {
-        description = "bundle react app to browser understandable vanilla js"
-        dependsOn("yarn_bundle")
-    }
-
-    register("check") {
-        description = "Start all frontend tests"
-        dependsOn("yarn_test")
-    }
+val bundledReactApp = file("$buildDir/bundle.js")
+val artifactToPublish = artifacts.add("archives", bundledReactApp) {
+    type = "js"
+    builtBy("yarn_bundle")
 }
