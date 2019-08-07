@@ -40,9 +40,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    compile("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
-    compile("it.skrape:skrapeit-core:$skrapeItVersion")
-    compile("io.github.microutils:kotlin-logging:1.7.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
+    implementation("it.skrape:skrapeit-core:$skrapeItVersion")
+    implementation("io.github.microutils:kotlin-logging:1.7.2")
 
     // testing
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -82,8 +82,7 @@ sourceSets {
 docker {
     springBootApplication {
         baseImage.set("openjdk:8-alpine")
-        ports.set(listOf(8080, 8080))
-        tag.set("${rootProject.name}:prod")
+        tag.set("${rootProject.name}:latest")
         jvmArgs.set(listOf("-Dspring.profiles.active=production", "-Xmx2048m"))
     }
 }
