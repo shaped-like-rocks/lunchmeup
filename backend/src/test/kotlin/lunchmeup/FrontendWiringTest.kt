@@ -11,12 +11,12 @@ class FrontendWiringTest {
     internal fun `frontend bundle has been added to classpath`() {
         val classPath = System.getProperty("java.class.path")
         println(classPath.replace(":", "\n"))
-        expectThat(classPath).contains("/backend/build/frontend:")
+        expectThat(classPath).contains("frontend.jar")
     }
 
     @Test
     internal fun `resource has correct path`() {
-        val resource = javaClass.getResource("/static/bundle.js")
+        val resource = javaClass.getResource("/META-INF/resources/bundle.js")
         expectThat(resource).isNotNull()
     }
 }

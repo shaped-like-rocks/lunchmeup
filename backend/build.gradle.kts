@@ -8,15 +8,6 @@ plugins {
     id("com.bmuschko.docker-spring-boot-application") version "4.10.0"
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
-        apiVersion = "1.3"
-        languageVersion = "1.3"
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-    }
-}
-
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 val developmentOnly: Configuration by configurations.creating
@@ -33,11 +24,12 @@ val htmlDslVersion = "0.6.11"
 val skrapeItVersion = "0.6.0"
 
 dependencies {
-    frontendBundle(project(path = ":frontend", configuration = "archives"))
+    implementation(project(path = ":frontend", configuration = "default"))
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
@@ -57,25 +49,22 @@ dependencies {
 
 
 tasks {
+
+    withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "1.8"
+            apiVersion = "1.3"
+            languageVersion = "1.3"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
+    }
+
     withType<Test>().configureEach {
         useJUnitPlatform()
     }
 
     bootRun {
         args("--spring.profiles.active=local")
-    }
-}
-
-val copyFrontend by tasks.creating(Copy::class) {
-    from(frontendBundle)
-    destinationDir = file("$buildDir/frontend/static")
-}
-
-sourceSets {
-    main {
-        java {
-            output.dir("$buildDir/frontend", "builtBy" to copyFrontend)
-        }
     }
 }
 
