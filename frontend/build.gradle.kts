@@ -22,6 +22,7 @@ val build by tasks.getting  {
 
 val jar by tasks.getting(Jar::class)  {
     archiveFileName.set("${project.name}.jar")
+    dependsOn("yarn_bundle")
     from(fileTree("dist"))
     into("META-INF/resources")
 }
