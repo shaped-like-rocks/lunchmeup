@@ -27,4 +27,4 @@ Frontend
     
 ### start application as docker container
 
-    docker run -t lunchmeup:prod -p 8080:8080
+    docker run lunchmeup -p 8080:8080

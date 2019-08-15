@@ -31,7 +31,7 @@ class MainPageController {
                     div {
                         id = "app"
                     }
-                    script(src = "/bundle.js") { }
+                    script(src = "/index.js") { }
                 }
             }.serialize(true)
 }

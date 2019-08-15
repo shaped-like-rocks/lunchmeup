@@ -16,7 +16,7 @@ class FrontendWiringTest {
 
     @Test
     internal fun `resource has correct path`() {
-        val resource = javaClass.getResource("/META-INF/resources/bundle.js")
+        val resource = javaClass.getResource("/META-INF/resources/index.js")
         expectThat(resource).isNotNull()
     }
 }

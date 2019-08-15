@@ -34,7 +34,7 @@ internal class MainPageControllerTest(
     internal fun `check JS bundle is added`() {
         doMainPageCall()
                 .andExpectHtml {
-                    element("script[src='/bundle.js']").toBePresent()
+                    element("script[src='/index.js']").toBePresent()
                 }
     }
 

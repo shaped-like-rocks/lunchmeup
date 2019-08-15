@@ -11,7 +11,6 @@ plugins {
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 val developmentOnly: Configuration by configurations.creating
-val frontendBundle: Configuration by configurations.creating
 
 configurations {
     runtimeClasspath {
@@ -71,6 +70,7 @@ tasks {
 docker {
     springBootApplication {
         baseImage.set("openjdk:8-alpine")
+        maintainer.set(rootProject.name)
         tag.set("${rootProject.name}:latest")
         jvmArgs.set(listOf("-Dspring.profiles.active=production", "-Xmx2048m"))
     }

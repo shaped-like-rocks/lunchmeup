@@ -1,8 +1,7 @@
-plugins {
-    base
 
+plugins {
     val kotlinVersion = "1.3.41"
-    id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
+    kotlin("jvm") version kotlinVersion apply false
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion apply false
     id("com.adarshr.test-logger") version "1.7.0"
 }
@@ -17,6 +16,7 @@ allprojects {
         jcenter()
     }
 
+    apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "com.adarshr.test-logger")
 
     testlogger {
@@ -28,6 +28,6 @@ allprojects {
 tasks {
     val start by creating {
         description = "Start Complete App (Frontend with Backend)"
-        dependsOn(":frontend:bundle", ":backend:bootRun")
+        dependsOn(":backend:bootRun")
     }
 }
