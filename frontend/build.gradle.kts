@@ -12,8 +12,8 @@ val yarn_test by tasks.getting  {
     dependsOn("yarn_install")
 }
 
-val check by tasks.getting  {
-    dependsOn("yarn_test")
+val yarn_bundle by tasks.getting  {
+    dependsOn("yarn_install")
 }
 
 val build by tasks.getting  {
