@@ -6,6 +6,7 @@ jdk:
 
 cache:
   directories:
+    - $HOME/gradle/
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/frontend/.gradle/wrapper/
