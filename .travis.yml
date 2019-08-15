@@ -4,6 +4,13 @@ jdk:
   - openjdk8
   - openjdk11
 
+matrix:
+  include:
+    - jdk: openjdk8
+      env: JDK=8
+    - jdk: openjdk8
+      env: JDK=11
+
 cache:
   directories:
     - $HOME/gradle/
