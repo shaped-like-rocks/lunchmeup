@@ -10,7 +10,7 @@
 
 ## Application
 
-build app:
+build app (including transpiling and bundling of frontend & compiling of the backend):
 
     gw build
     
@@ -18,9 +18,9 @@ run all tests (including backend & frontend)
 
     gw check
     
-start app:
+start complete app (backend with frontend):
 
-    gw start
+    gw bootRun
     
 ## A few words
 
