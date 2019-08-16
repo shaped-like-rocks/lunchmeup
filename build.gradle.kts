@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     val kotlinVersion = "1.3.41"
@@ -23,11 +24,19 @@ allprojects {
         setTheme("mocha")
         slowThreshold = 5000
     }
-}
 
-tasks {
-    val start by creating {
-        description = "Start Complete App (Frontend with Backend)"
-        dependsOn(":backend:bootRun")
+    tasks {
+        withType<KotlinCompile> {
+            kotlinOptions {
+                jvmTarget = "1.8"
+                apiVersion = "1.3"
+                languageVersion = "1.3"
+                freeCompilerArgs = listOf("-Xjsr305=strict")
+            }
+        }
+
+        withType<Test>().configureEach {
+            useJUnitPlatform()
+        }
     }
 }

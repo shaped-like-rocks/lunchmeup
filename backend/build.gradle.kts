@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("org.springframework.boot") version "2.1.6.RELEASE"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
@@ -28,8 +26,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$htmlDslVersion")
     implementation("it.skrape:skrapeit-core:$skrapeItVersion")
@@ -48,20 +46,6 @@ dependencies {
 
 
 tasks {
-
-    withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "1.8"
-            apiVersion = "1.3"
-            languageVersion = "1.3"
-            freeCompilerArgs = listOf("-Xjsr305=strict")
-        }
-    }
-
-    withType<Test>().configureEach {
-        useJUnitPlatform()
-    }
-
     bootRun {
         args("--spring.profiles.active=local")
     }
